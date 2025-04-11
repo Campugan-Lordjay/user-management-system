@@ -2,7 +2,7 @@
 
 # Frontend
 
-Amplayo, Marlon
+Amplayo, Marlon |
 Magsayo, Kristian
 
 # Backend
