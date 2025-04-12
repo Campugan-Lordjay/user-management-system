@@ -14,7 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
         private formBuilder: UntypedFormBuilder,
         private accountService: AccountService,
         private alertService: AlertService
-    ) { }
+    ) {}
 
     ngOnInit() {
         this.form = this.formBuilder.group({
@@ -38,12 +38,16 @@ export class ForgotPasswordComponent implements OnInit {
 
         this.loading = true;
         this.alertService.clear();
-        this.accountService.forgotPassword(this.f.email.value)
+        this.accountService.forgotPassword(this.f.value.email)
             .pipe(first())
             .pipe(finalize(() => this.loading = false))
             .subscribe({
-                next: () => this.alertService.success('Please check your email for password reset instructions'),
-                error: error => this.alertService.error(error)
+                next: () => {
+                    this.alertService.success('Password reset email sent, please check your inbox');
+                },
+                error: error => {
+                    this.alertService.error(error);
+                }
             });
     }
 }
