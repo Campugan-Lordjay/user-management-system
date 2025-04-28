@@ -12,6 +12,7 @@ enum TokenStatus {
     Invalid
 }
 
+//Reset
 @Component({ templateUrl: 'reset-password.component.html' })
 export class ResetPasswordComponent implements OnInit {
     TokenStatus = TokenStatus;
